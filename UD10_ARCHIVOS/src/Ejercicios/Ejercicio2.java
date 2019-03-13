@@ -10,8 +10,13 @@ public class Ejercicio2 {
 		// TODO Auto-generated method stub
 		Scanner teclado=new Scanner(System.in);
 		String nombreFichero="c:\\archivos\\datos.txt";
-		String nombre="";
-		int edad=0;
+		
+		System.out.println("Nombre: ");
+		
+		String nombre=teclado.nextLine();
+		
+		System.out.println("Edad: ");
+		int edad=teclado.nextInt();;
 		
 		
 		File f=new File(nombreFichero);
@@ -23,8 +28,6 @@ public class Ejercicio2 {
 				System.out.println(caracter);
 				caracter=n.readLine();
 			}
-			nombre=teclado.nextLine();
-			edad=teclado.nextInt();
 			n.close();
 			}catch(IOException ex) {
 				System.out.println("el archivo no se puede abrir"+ex.getMessage());
