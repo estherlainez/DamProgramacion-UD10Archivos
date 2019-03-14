@@ -29,7 +29,7 @@ public class Ejercicio4 {
 					n.write(cifra);
 					n.newLine();
 				}while(cifra.compareTo("igual")!=-1);
-				//(cifra.compareTo("para")!=-1);
+				
 				n.close();
 				
 			}catch(IOException ex) {
