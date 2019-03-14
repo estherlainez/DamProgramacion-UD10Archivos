@@ -12,7 +12,7 @@ public class Ejercicio4 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner teclado=new Scanner(System.in);
-		int numero=0;
+		int numero=0,contador=0,maximo=0,minimo=0;
 		String cifra="";
 		String ruta= "c:\\archivos\\numeros.txt";
 		File numeros =new File(ruta);
@@ -22,13 +22,12 @@ public class Ejercicio4 {
 				BufferedWriter n=new BufferedWriter (new FileWriter(numeros));
 
 				do {
-					System.out.println("Escribe un numero");
-					numero=(int)(Math.random()*10);
+					numero=(int)(Math.random()*50);
 					cifra = String.valueOf(numero);
-					
 					n.write(cifra);
 					n.newLine();
-				}while(cifra.compareTo("igual")!=-1);
+					contador++;
+				}while(contador<=50);
 				
 				n.close();
 				
@@ -43,8 +42,22 @@ public class Ejercicio4 {
 				while (cifra!=null) { 
 					System.out.println(cifra);
 					cifra=nu.readLine();
+					if (numero>maximo) {
+						maximo=numero;
+						
+					}
+					
+					if (numero<minimo) {
+						minimo=numero;
+					
+					}
+					cifra=nu.readLine();
 				}
 				nu.close();
+				
+				System.out.println("El valor minimo sera: "+minimo);
+				System.out.println("El valor maximo sera: "+maximo);
+				
 				}catch(IOException ex) {
 					System.out.println("el archivo no se puede abrir");
 				}
