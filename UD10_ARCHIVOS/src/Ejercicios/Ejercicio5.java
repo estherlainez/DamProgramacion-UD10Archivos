@@ -18,24 +18,20 @@ public class Ejercicio5 {
 			BufferedReader file = new BufferedReader (new FileReader(original));
 
 			String linea=file.readLine();
+			String caracter=file.readLine();
 			
-			file.readLine();
-			int caracter=file.read();
 			while (linea!=null) {
-				System.out.print(linea);
-				file.readLine();
+				System.out.println(linea);				
 				contador++;
-				
 				if(contador==cadaLineas) {
-					
-					
+					System.out.println();
+					System.out.println("Presione enter");
+					teclado.nextLine();
+					contador=0;
 				}
-				
+				caracter=file.readLine();
 			}
-			
-				
-			
-			
+			file.close();
 			
 			}catch(IOException ex) {
 				System.out.println("el archivo no se puede abrir");
