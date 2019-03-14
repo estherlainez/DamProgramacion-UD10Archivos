@@ -13,6 +13,7 @@ public class Ejercicio4 {
 		// TODO Auto-generated method stub
 		Scanner teclado=new Scanner(System.in);
 		int numero=0;
+		String cifra="";
 		String ruta= "c:\\archivos\\numeros.txt";
 		File numeros =new File(ruta);
 		int arrayNumeros[]=new int [50];
@@ -20,39 +21,33 @@ public class Ejercicio4 {
 			try {
 				BufferedWriter n=new BufferedWriter (new FileWriter(numeros));
 
-				BufferedReader num = new BufferedReader (new FileReader(numeros));
-				
-			
 				do {
-					//System.out.println("mis numeros");
+					System.out.println("Escribe un numero");
+					numero=(int)(Math.random()*10);
+					cifra = String.valueOf(numero);
 					
-					for(int i=0;i<arrayNumeros.length;i++) {
-						arrayNumeros[i]=(int)(Math.random()*50);
-						//System.out.print(arrayNumeros[i]+ "\t");
-						//String cifra= num.readLine();		
-						i=num.read();
-						System.out.println(i);
-						n.write(i);
-						n.newLine();
-						
-						Arrays.sort(arrayNumeros);
-						System.out.print(arrayNumeros[0]+ "\t"+arrayNumeros[49]);
-					}
-					
-					//System.out.println(numero);
-					//n.write(numero);
-					//n.newLine();
-				}while(numero!=0);
-				
+					n.write(cifra);
+					n.newLine();
+				}while(cifra.compareTo("igual")!=-1);
+				//(cifra.compareTo("para")!=-1);
 				n.close();
-				num.close();
-				
-				Arrays.sort(arrayNumeros);
-				Arrays.toString(arrayNumeros);
 				
 			}catch(IOException ex) {
 				System.out.println("el archivo no se puede abrir");
 			}
+			
+			
+			try {
+				BufferedReader nu = new BufferedReader (new FileReader(numeros));
+				 cifra=nu.readLine();
+				while (cifra!=null) { 
+					System.out.println(cifra);
+					cifra=nu.readLine();
+				}
+				nu.close();
+				}catch(IOException ex) {
+					System.out.println("el archivo no se puede abrir");
+				}
 			
 		}
 	}
