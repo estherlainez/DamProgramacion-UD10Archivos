@@ -17,6 +17,7 @@ public class Ejercicio4 {
 		String ruta= "c:\\archivos\\numeros.txt";
 		File numeros =new File(ruta);
 		int arrayNumeros[]=new int [50];
+		int i=0;
 		if(numeros.exists()) {
 			try {
 				BufferedWriter n=new BufferedWriter (new FileWriter(numeros));
@@ -39,28 +40,22 @@ public class Ejercicio4 {
 			try {
 				BufferedReader nu = new BufferedReader (new FileReader(numeros));
 				 cifra=nu.readLine();
-				while (cifra!=null) { 
-					System.out.println(cifra);
+				while ((cifra!=null)&&(i<50)) { 
+				
+					arrayNumeros[i]=Integer.parseInt(cifra);
+					System.out.println("array  "+i+"-----> "+cifra);
 					cifra=nu.readLine();
-					if (numero>maximo) {
-						maximo=numero;
-						
-					}
-					
-					if (numero<minimo) {
-						minimo=numero;
-					
-					}
-					cifra=nu.readLine();
+					i++;
 				}
-				nu.close();
-				
-				System.out.println("El valor minimo sera: "+minimo);
-				System.out.println("El valor maximo sera: "+maximo);
-				
-				}catch(IOException ex) {
+				nu.close();					
+			}catch(IOException ex) {
 					System.out.println("el archivo no se puede abrir");
-				}
+			}
+			
+			Arrays.sort(arrayNumeros);
+			System.out.println("El valor minimo sera: "+arrayNumeros[0]);
+			System.out.println("El valor maximo sera: "+arrayNumeros[49]);
+			
 			
 		}
 	}
