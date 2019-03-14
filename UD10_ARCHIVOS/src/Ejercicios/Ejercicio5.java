@@ -20,7 +20,18 @@ public class Ejercicio5 {
 			String linea=file.readLine();
 			
 			file.readLine();
-			
+			int caracter=file.read();
+			while (linea!=null) {
+				System.out.print(linea);
+				file.readLine();
+				contador++;
+				
+				if(contador==cadaLineas) {
+					
+					
+				}
+				
+			}
 			
 				
 			
