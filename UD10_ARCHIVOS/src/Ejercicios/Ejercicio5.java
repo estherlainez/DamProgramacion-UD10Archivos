@@ -12,13 +12,12 @@ public class Ejercicio5 {
 		// TODO Auto-generated method stub
 		Scanner teclado=new Scanner(System.in);
 		int cadaLineas=24,contador=0;
-		String ruta= "c:\\archivos\\original.txt";
-		File original =new File(ruta);
+		String ruta= "c:\\archivos\\documentoLinux.txt";
+		File documentoLinux =new File(ruta);
 		try {
-			BufferedReader file = new BufferedReader (new FileReader(original));
+			BufferedReader file = new BufferedReader (new FileReader(documentoLinux));
 
 			String linea=file.readLine();
-			String caracter=file.readLine();
 			
 			while (linea!=null) {
 				System.out.println(linea);				
@@ -29,7 +28,7 @@ public class Ejercicio5 {
 					teclado.nextLine();
 					contador=0;
 				}
-				caracter=file.readLine();
+				linea=file.readLine();
 			}
 			file.close();
 			
