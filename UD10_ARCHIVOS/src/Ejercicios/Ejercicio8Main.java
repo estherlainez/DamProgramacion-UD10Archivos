@@ -2,45 +2,39 @@ package Ejercicios;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 public class Ejercicio8Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		Scanner teclado=new Scanner (System.in);
 		int opcion=0;
 		String [] Clientes= {"Esther Lainez","Marcos Moreno","Rosa Jimenez","Pablo Berges","Lucas Jimenez"};
 		String [] telefonos = {"666555444","654321987","678909876","665544332","675432123"};
 
-		Clientes arrayClientes[]= new Clientes[5];
-		
+		//Clientes arrayClientes[]= new Clientes[5];
+		FileOutputStream archivo = new 	FileOutputStream("c:\\archivos\\telefonos.dat");
 		try {
-			DataOutputStream c=new 	DataOutputStream
-				(new FileOutputStream("c:\\archivos\\telefonos.dat"));
+			ObjectOutputStream c = new ObjectOutputStream(new FileOutputStream("telefonos.dat"));
+				
 		
-			for(int i=0;i<5;i++) {
-				c.writeUTF(Clientes[i]);
-				c.writeUTF(telefonos[i]);
-			}
+			
 			c.close();
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		
-		String []misClientes= new String[5];
-		String []misTelefonos=new String[5];
+		
 		try {
 			DataInputStream d= new DataInputStream
 					(new FileInputStream("c:\\archivos\\telefonos.dat"));
 				
-				for(int i=0;i<5;i++) {
-					misClientes[i]=d.readUTF();
-					misTelefonos[i]=d.readUTF();
 				
-				}
 			d.close();
 		}catch(IOException e) {
 			e.printStackTrace();
