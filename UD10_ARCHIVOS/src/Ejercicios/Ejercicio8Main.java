@@ -12,17 +12,29 @@ public class Ejercicio8Main {
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		Scanner teclado=new Scanner (System.in);
-		int opcion=0;
-		String [] Clientes= {"Esther Lainez","Marcos Moreno","Rosa Jimenez","Pablo Berges","Lucas Jimenez"};
-		String [] telefonos = {"666555444","654321987","678909876","665544332","675432123"};
-
-		//Clientes arrayClientes[]= new Clientes[5];
-		FileOutputStream archivo = new 	FileOutputStream("c:\\archivos\\telefonos.dat");
-		try {
-			ObjectOutputStream c = new ObjectOutputStream(new FileOutputStream("telefonos.dat"));
-				
+		int opcion=0,limite=10;
 		
-			
+		String [] clientes= {"Esther Lainez","Marcos Moreno","Rosa Jimenez"};
+		String [] telefonos = {"666555444","654321987","678909876"};
+		
+		Clientes c1= new Clientes("EstherLainez","666555444");
+		Clientes c2 = new Clientes ("Marcos Moreno","654321987");
+		Clientes c3 = new Clientes ("Rosa Jimenez","678909876");
+		Clientes arrayClientes[]= new Clientes[limite];
+		arrayClientes[0]=c1;arrayClientes[1]=c2;arrayClientes[2]=c3;
+		
+		
+		FileOutputStream archivo = new 	FileOutputStream("clientes.dat");
+		try {
+			ObjectOutputStream c = new ObjectOutputStream(new FileOutputStream("clientes.dat"));
+			c.writeObject(clientes);
+			c.writeObject(telefonos);
+		/*
+			for(int i=0;i<limite;i++) {
+				c.writeUTF(clientes[i]);
+				c.writeUTF(telefonos[i]);
+			}
+			*/
 			c.close();
 		}catch (IOException e) {
 			e.printStackTrace();
@@ -32,7 +44,7 @@ public class Ejercicio8Main {
 		
 		try {
 			DataInputStream d= new DataInputStream
-					(new FileInputStream("c:\\archivos\\telefonos.dat"));
+					(new FileInputStream("c:\\archivos\\clientes.dat"));
 				
 				
 			d.close();
@@ -53,17 +65,19 @@ public class Ejercicio8Main {
 			switch(opcion) {
 			case 1:
 				System.out.println("Añadir nuevo cliente");
-				//arrayClientes[5].añadirCliente("Carlos Perez", "676878898");
-				//System.out.println(arrayClientes.toString());
+				
 				break;
 			case 2:
 				System.out.println("Modificar datos");
+				
 				break;
 			case 3:
 				System.out.println("Dar de baja un cliente");
+				
 				break;
 			case 4:
 				System.out.println("Listar los clientes");
+			
 				
 				break;
 			case 5:

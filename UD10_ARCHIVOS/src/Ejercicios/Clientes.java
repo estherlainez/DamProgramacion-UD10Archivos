@@ -3,7 +3,7 @@ package Ejercicios;
 public class Clientes implements java.io.Serializable{
 
 	int numClientes;
-	int limite=20;
+	int limite=10;
 	Clientes clientes[];
 	String nombre;
 	String telefono;
