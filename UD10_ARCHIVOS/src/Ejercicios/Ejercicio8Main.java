@@ -59,7 +59,8 @@ public class Ejercicio8Main {
 			switch(opcion) {
 			case 1:
 				System.out.println("Añadir nuevo cliente");
-				
+				//arrayClientes[5].añadirCliente("Carlos Perez", "676878898");
+				//System.out.println(arrayClientes.toString());
 				break;
 			case 2:
 				System.out.println("Modificar datos");
