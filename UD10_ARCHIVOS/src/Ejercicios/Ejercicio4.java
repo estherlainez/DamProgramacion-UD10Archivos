@@ -55,7 +55,7 @@ public class Ejercicio4 {
 			Arrays.sort(arrayNumeros);
 			System.out.println("El valor minimo sera: "+arrayNumeros[0]);
 			System.out.println("El valor maximo sera: "+arrayNumeros[49]);
-			
+			System.out.println(Arrays.toString(arrayNumeros));
 			
 		}
 	}
