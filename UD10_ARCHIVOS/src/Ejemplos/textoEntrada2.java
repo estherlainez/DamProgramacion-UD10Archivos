@@ -8,7 +8,7 @@ public class textoEntrada2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String nombreFichero= "c:\\Programación\\ejemplo01.txt";
+		String nombreFichero= "c:\\archivos\\ejemplo01.txt";
 		
 		//crear el objeto file
 		File f=new File(nombreFichero);

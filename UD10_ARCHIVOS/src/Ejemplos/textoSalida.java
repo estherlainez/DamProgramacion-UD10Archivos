@@ -17,7 +17,7 @@ public class textoSalida {
 		
 		try {
 			BufferedWriter f=new BufferedWriter (new FileWriter(nombreFichero));
-			f.write("ESTE ES EL TEXTO INTRODUCIDO "+texto);
+			f.write("ESTE ES EL TEXTO INTRODUCIDO \n"+texto);
 			f.close();
 		}catch (IOException e) {
 			System.out.println("El fichero no se pudo abrir");
