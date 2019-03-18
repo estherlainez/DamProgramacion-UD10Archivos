@@ -16,10 +16,6 @@ public class Ejercicio6 {
 	public static void main(String[] args) {
 		Scanner teclado=new Scanner(System.in);
 		
-		int numero=0,contador=1;
-		String miNumero="",miCifra="";
-		
-		
 		//Generar numero aleatorio
 		//Generar n numeros aleatorios. Usaremos un array para guardar
 		//Ordenar de forma creciente
@@ -45,7 +41,7 @@ public class Ejercicio6 {
 		
 		//Leer el nombre del archivo
 		System.out.println("Introduzca la ruta de su archivo: ");
-		String ruta= teclado.nextLine();   //ruta= c:\\archivos\\miArchivo.txt
+		String ruta= teclado.nextLine();   //ruta= c:\\archivos\\miArchivo.dat
 		
 		File miArchivo =new File(ruta);
 		if(!miArchivo.isAbsolute()) {
@@ -57,7 +53,7 @@ public class Ejercicio6 {
 			try {
 				DataOutputStream d=new 	DataOutputStream
 						(new FileOutputStream("c:\\archivos\\miArchivo.dat"));
-					for(int i=1;i<=numAleatorio;i++) {
+					for(int i=0;i<numAleatorio;i++) {
 						d.writeInt(array[i]);
 					
 					}
