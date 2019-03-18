@@ -29,8 +29,8 @@ public class Ejercicio7 {
 				}
 				
 				Arrays.sort(array);
-				for(int e: array) {
-					System.out.println(" "+e);
+				for(int z: array) {
+					System.out.println(" "+z);
 				}
 				
 				
@@ -43,8 +43,8 @@ public class Ejercicio7 {
 				}
 				
 				Arrays.sort(array2);
-				for(int e: array2) {
-					System.out.println(" "+e);
+				for(int s: array2) {
+					System.out.println(" "+s);
 				}
 		
 				System.out.println("Introduzca la ruta de su primer archivo: ");
@@ -111,7 +111,7 @@ public class Ejercicio7 {
 							
 							while(true) {
 							array2[y]=d.readInt();
-							x++;
+							y++;
 							}
 						
 					}catch(EOFException e) {
@@ -122,17 +122,20 @@ public class Ejercicio7 {
 					
 					if(numeros3.exists()) {
 						try {
-							DataOutputStream dos =new 	DataOutputStream
+							DataOutputStream ds =new 	DataOutputStream
 									(new FileOutputStream("c:\\archivos\\numeros3.dat"));
+								/*
 								for(int j=0;j<a;j++) {
-									dos.writeInt(array[x]);
+									ds.writeInt(array[x]);
 								}
 								
+								
 								for(int j=0;j<b;j++) {
-									dos.writeInt(array2[y]);
+									ds.writeInt(array2[y]);
 								}
-
-							dos.close();
+								*/
+								
+							ds.close();
 							
 						}catch(IOException ex) {
 							System.out.println("el archivo no se puede abrir");
