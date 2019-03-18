@@ -2,6 +2,7 @@ package Ejemplos;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -33,18 +34,21 @@ public class EjemploBinario {
 		
 		String []alumnosLeidos= new String[3];
 		double[]notasLeidas=new double[3];
+		int i=0;
 		try {
 			DataInputStream d= new DataInputStream
 					(new FileInputStream("c:\\archivos\\notas.dat"));
 				
-				for(int i=0;i<3;i++) {
+				while(true) {
 				alumnosLeidos[i]=d.readUTF();
 				notasLeidas[i]=d.readDouble();
-				
+				i++;
 				}
-			d.close();
+			
+		}catch(EOFException e) {
+			System.out.println("Fin del fichero");
 		}catch(IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		
 		for(String e:alumnosLeidos) {
