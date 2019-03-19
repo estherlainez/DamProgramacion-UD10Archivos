@@ -2,8 +2,12 @@ package Ejercicios;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -36,8 +40,9 @@ public class Ejercicio6 {
 		//Ordenar el array
 		Arrays.sort(array);
 		for(int e: array) {
-			System.out.println(" "+e);
+			System.out.print(" "+e);
 		}
+		System.out.println();
 		
 		//Leer el nombre del archivo
 		System.out.println("Introduzca la ruta de su archivo: ");
@@ -52,21 +57,46 @@ public class Ejercicio6 {
 		if(miArchivo.exists()) {
 			try {
 				DataOutputStream d=new 	DataOutputStream
-						(new FileOutputStream("c:\\archivos\\miArchivo.dat"));
+						(new FileOutputStream(ruta));
 					for(int i=0;i<numAleatorio;i++) {
+						//escribo en el archivo leido por teclado el numero
+						//que he introducido en el array
 						d.writeInt(array[i]);
-					
 					}
-				
-				
+
 				d.close();
 				
 			}catch(IOException ex) {
-				System.out.println("el archivo no se puede abrir");
+				ex.printStackTrace();//imprimimos el error
+				System.out.println("el archivo no se puede escribrir el archivo");
 			}
-			
-			
+
 		}
+		
+		//ADICIONAL: Vamos a comprobar que se han guardado los datos
+		//Creamos una variable para imprimir el valor del archivo binario
+		int i=0;
+		int valor;
+		try {
+			DataInputStream stream= new DataInputStream(new FileInputStream(ruta));
+			while(true) {
+				//Provocamos bucle infinito para leer el archivo binario
+				//hasta el final
+				 
+				//******MODIFICAR*****//
+				//array[i]=stream.readInt();   seria otra opcion
+				//i++;
+				valor=stream.readInt();
+				System.out.print(valor+" ");
+				}
+			
+		}catch(EOFException e) {
+			System.out.println("Fin del fichero");
+		}catch(IOException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
 	}
 }
 
