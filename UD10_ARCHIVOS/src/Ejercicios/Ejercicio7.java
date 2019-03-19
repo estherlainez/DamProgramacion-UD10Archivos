@@ -20,6 +20,27 @@ public class Ejercicio7 {
 		// TODO Auto-generated method stub
 		Scanner teclado=new Scanner(System.in);
 		
+		/*comprobar si existen los ficheros
+			si existen:
+			Crear el archivo numeros.dat (Escritura)
+			Abrir el archivo numeros1 (Lectura)
+			Abrir el archivo numeros2 (Lectura)
+			Leemos un valordeA1 de numeros1.dat 
+			Leemos un valordeA2 de numeros2.dat
+			
+			mientras (no finalice un archivo)
+			Si (valordeA1<valordeA2) entonces numeros=valordeA1
+			   leer siguiente valordeA1
+			
+			  	si no
+			      	numeros=valordeA2
+				fin si
+			fin mientras
+			//si no existen, varias opciones
+			//añdir codigo del ejercicio 6
+			//podiamos crear metodos para crear el archivo basandonos en el ejercicio 6(no es el objetivo)
+	*/
+		
 				int a= (int)(Math.random()*100);
 				System.out.println("el numero aleatorio para el archivo 1 sera de: "+a);
 				
@@ -30,7 +51,7 @@ public class Ejercicio7 {
 				
 				Arrays.sort(array);
 				for(int z: array) {
-					System.out.println(" "+z);
+					//System.out.println(" "+z);
 				}
 				
 				
@@ -38,13 +59,13 @@ public class Ejercicio7 {
 				System.out.println("el numero aleatorio para el archivo 2 sera de: "+b);
 				
 				int array2[]= new int [b];
-				for(int i=0;i<b;i++) {
+				for(int i=0;i<b;i++) {                                                                                                 
 					array2[i]=(int)(Math.random()*100);
 				}
 				
 				Arrays.sort(array2);
 				for(int s: array2) {
-					System.out.println(" "+s);
+					//System.out.println(" "+s);
 				}
 		
 				System.out.println("Introduzca la ruta de su primer archivo: ");
