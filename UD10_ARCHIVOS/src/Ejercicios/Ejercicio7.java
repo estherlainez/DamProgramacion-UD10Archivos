@@ -36,6 +36,8 @@ public class Ejercicio7 {
 			      	numeros=valordeA2
 				fin si
 			fin mientras
+			
+			mientras numeros1.dat o numeros2.dat queden datos, escribimos en numeros los restos de informacion
 			//si no existen, varias opciones
 			//añdir codigo del ejercicio 6
 			//podiamos crear metodos para crear el archivo basandonos en el ejercicio 6(no es el objetivo)
