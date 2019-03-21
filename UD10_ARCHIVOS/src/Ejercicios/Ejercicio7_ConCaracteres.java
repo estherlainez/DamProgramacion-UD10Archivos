@@ -37,12 +37,15 @@ public class Ejercicio7_ConCaracteres {
 			try {
 				
                while (true) { 
-            	   if (!elemento1.equals(elemento2)) { 
+            	   int S=elemento1.compareTo(elemento2);
+            	   if (S<0) { 
                              out.writeUTF(elemento1);
                              elemento1=in1.readUTF(); 
-            	   }else {
+            	   }else if (S>0){
                              out.writeUTF(elemento2);
                              elemento2=in1.readUTF();
+            	   }else if (S==0){
+                      System.out.println("iguales...");
             	   }
 
                }
