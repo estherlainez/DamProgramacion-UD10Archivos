@@ -21,10 +21,10 @@ public class Ejercicio7_ConCaracteres {
 		try {
 
 			in1= new DataInputStream
-                      (new FileInputStream("C:\\archivos\\misPalabras1.dat"));
+                      (new FileInputStream("c:\\archivos\\misPalabras1.dat"));
 
 			in2= new DataInputStream
-                      (new FileInputStream("C:\\archivos\\misPalabras2.dat"));
+                      (new FileInputStream("c:\\archivos\\misPalabras2.dat"));
 
 			out=new DataOutputStream
                       (new FileOutputStream ("c:\\archivos\\palabras.dat"));

@@ -76,4 +76,9 @@ public class Clientes implements java.io.Serializable{
 	public String toString() {
 		return "Cliente [nombre=" + nombre + ", telefono=" + telefono + ", id=" + id + "]";
 	}
+
+	public void print() {
+		System.out.println(nombre + " -> " + telefono + id );
+		
+	}
 }
