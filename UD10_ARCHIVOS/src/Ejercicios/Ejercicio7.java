@@ -2,6 +2,7 @@ package Ejercicios;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
@@ -38,135 +39,86 @@ public class Ejercicio7 {
 			fin mientras
 			
 			mientras numeros1.dat o numeros2.dat queden datos, escribimos en numeros los restos de informacion
-			//si no existen, varias opciones
-			//añdir codigo del ejercicio 6
-			//podiamos crear metodos para crear el archivo basandonos en el ejercicio 6(no es el objetivo)
-	*/
-		
-				int a= (int)(Math.random()*100);
-				System.out.println("el numero aleatorio para el archivo 1 sera de: "+a);
+	 
+		 */
+				int elemento1;
+				int elemento2;
+				DataInputStream in1=null;
+				DataInputStream in2=null;
+				DataOutputStream out=null;
+	
 				
-				int array[]= new int [a];
-				for(int i=0;i<a;i++) {
-					array[i]=(int)(Math.random()*100);
-				}
-				
-				Arrays.sort(array);
-				for(int z: array) {
-					//System.out.println(" "+z);
-				}
-				
-				
-				int b= (int)(Math.random()*100);
-				System.out.println("el numero aleatorio para el archivo 2 sera de: "+b);
-				
-				int array2[]= new int [b];
-				for(int i=0;i<b;i++) {                                                                                                 
-					array2[i]=(int)(Math.random()*100);
-				}
-				
-				Arrays.sort(array2);
-				for(int s: array2) {
-					//System.out.println(" "+s);
-				}
-		
-				System.out.println("Introduzca la ruta de su primer archivo: ");
-				String ruta1= teclado.nextLine();   //ruta= c:\\archivos\\numeros1.dat
-				System.out.println("Introduzca la ruta de su aegundo archivo: ");
-				String ruta2= teclado.nextLine();   //ruta= c:\\archivos\\numeros2.dat		
-				String ruta3= "c:\\archivos\\numeros3.dat";
-				
-				File numeros1 =new File(ruta1);
-				File numeros2 =new File(ruta2);
-				File numeros3 =new File(ruta3);
+			try {
+				 in1=new 	DataInputStream
+						(new FileInputStream("c:\\archivos\\numeros1.dat"));
+				 in2=new 	DataInputStream
+						(new FileInputStream("c:\\archivos\\numeros2.dat"));
+				 out=new 	DataOutputStream
+						(new FileOutputStream("c:\\archivos\\numeros.dat"));
 			
-				if(numeros1.exists()) {
+			
+				elemento1=in1.readInt();
+				elemento2=in2.readInt();
 					try {
-						DataOutputStream d=new 	DataOutputStream
-								(new FileOutputStream("c:\\archivos\\numeros1.dat"));
-							for(int i=0;i<a;i++) {
-								d.writeInt(array[i]);
+						while(true) {
+							if(elemento1<=elemento2) {
+								out.writeInt(elemento1);
+								elemento1=in1.readInt();
+							}else{
+								out.writeInt(elemento2);
+								elemento2=in1.readInt();
 							}
-
-						d.close();
-						
-					}catch(IOException ex) {
-						System.out.println("el archivo no se puede abrir");
-					}
-					
-					if(numeros2.exists()) {
-						try {
-							DataOutputStream d=new 	DataOutputStream
-									(new FileOutputStream("c:\\archivos\\numeros2.dat"));
-								for(int i=0;i<b;i++) {
-									d.writeInt(array2[i]);
-								
-								}
-							
-							
-							d.close();
-							
-						}catch(IOException ex) {
-							System.out.println("el archivo no se puede abrir");
 						}
 						
+					}catch(EOFException e) {//cuando llegamos al final del archivo y salta una excepcion
+											//no sabemos cual de los dos archivos se va a cerrar
+						while(in1.available()>0) {
+							elemento1=in1.readInt();
+							out.writeInt(elemento1);
+							
+						}
+						
+						while(in2.available()>0) {
+							elemento2=in2.readInt();
+							out.writeInt(elemento2);
+							
+						}
+						//una vez aqui, hemos cerrado el archivo mas corto mediante la excepcion
 					}
 					
-					int x=0,y=0;
-					try {
-						DataInputStream d= new DataInputStream
-								(new FileInputStream("c:\\archivos\\numeros1.dat"));
-							
-							while(true) {
-							array[x]=d.readInt();
-							x++;
-							}
-						
-					}catch(EOFException e) {
-						System.out.println("Fin");
-					}catch(IOException e) {
+				}catch(IOException e) {
 						System.out.println(e.getMessage());
-					}	
-					
-					try {
-						DataInputStream d= new DataInputStream
-								(new FileInputStream("c:\\archivos\\numeros2.dat"));
-							
-							while(true) {
-							array2[y]=d.readInt();
-							y++;
-							}
-						
-					}catch(EOFException e) {
-						System.out.println("Fin");
-					}catch(IOException e) {
-						System.out.println(e.getMessage());
-					}	
-					
-					if(numeros3.exists()) {
+				}finally {
+					if(in1!=null) {
 						try {
-							DataOutputStream ds =new 	DataOutputStream
-									(new FileOutputStream("c:\\archivos\\numeros3.dat"));
-								/*
-								for(int j=0;j<a;j++) {
-									ds.writeInt(array[x]);
-								}
-								
-								
-								for(int j=0;j<b;j++) {
-									ds.writeInt(array2[y]);
-								}
-								*/
-								
-							ds.close();
-							
+							in1.close();
 						}catch(IOException ex) {
-							System.out.println("el archivo no se puede abrir");
+							System.out.println(ex.getMessage());
 						}
 					}
 					
+					if(in2!=null) {
+						try {
+							in2.close();
+						}catch(IOException ex) {
+							System.out.println(ex.getMessage());
+						}
+					}
 					
-					
+					if(out!=null) {
+						try {
+							out.close();
+						}catch(IOException ex) {
+							System.out.println(ex.getMessage());
+						}
+					}
 				}
-		}
+		
 	}
+}
+				
+
+				
+				
+			
+	
