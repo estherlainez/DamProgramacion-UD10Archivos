@@ -64,14 +64,12 @@ public class Ejercicio6_ConCaracteres {
 					System.out.println("No es una ruta absoluta");
 				}
 			
-				//Guardar en el archivo
+
 				if(misPalabras.exists()) {
 					try {
 						DataOutputStream d=new 	DataOutputStream
 								(new FileOutputStream(ruta));
 							for(int i=0;i<num;i++) {
-								//escribo en el archivo leido por teclado la palabra
-								//que he introducido en el array
 								d.writeUTF(arrayPalabras[i]);
 
 							}
@@ -79,13 +77,26 @@ public class Ejercicio6_ConCaracteres {
 						d.close();
 						
 					}catch(IOException ex) {
-						ex.printStackTrace();//imprimimos el error
+						ex.printStackTrace();
 						System.out.println("el archivo no se puede escribrir el archivo");
 					}
 
 				}
 				
-				
+
+				String valor="";
+				try {
+					DataInputStream stream= new DataInputStream(new FileInputStream(ruta));
+					while(true) {
+						valor=stream.readUTF();
+						System.out.print(valor+" | ");
+						}
+					
+				}catch(EOFException e) {
+					System.out.println("Fin del fichero");
+				}catch(IOException e) {
+					System.out.println(e.getMessage());
+				}
 				
 				
 	}
