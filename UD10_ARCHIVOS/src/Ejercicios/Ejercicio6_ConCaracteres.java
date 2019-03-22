@@ -65,7 +65,7 @@ public class Ejercicio6_ConCaracteres {
 				}
 			
 
-				if(misPalabras.exists()) {
+				
 					try {
 						DataOutputStream d=new 	DataOutputStream
 								(new FileOutputStream(ruta));
@@ -81,7 +81,7 @@ public class Ejercicio6_ConCaracteres {
 						System.out.println("el archivo no se puede escribrir el archivo");
 					}
 
-				}
+				
 				
 
 				String valor="";

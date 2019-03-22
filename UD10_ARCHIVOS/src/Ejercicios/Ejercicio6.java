@@ -54,7 +54,7 @@ public class Ejercicio6 {
 		}
 	
 		//Guardar en el archivo
-		if(miArchivo.exists()) {
+		
 			try {
 				DataOutputStream d=new 	DataOutputStream
 						(new FileOutputStream(ruta));
@@ -71,7 +71,7 @@ public class Ejercicio6 {
 				System.out.println("el archivo no se puede escribrir el archivo");
 			}
 
-		}
+		
 		
 		//ADICIONAL: Vamos a comprobar que se han guardado los datos
 		//Creamos una variable para imprimir el valor del archivo binario
