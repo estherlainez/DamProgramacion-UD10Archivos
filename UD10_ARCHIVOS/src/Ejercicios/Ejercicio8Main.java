@@ -61,12 +61,12 @@ public class Ejercicio8Main {
 				while(true) {
 			
 					p =(Clientes) stream.readObject();			
-					arrayClientes[i]=p;
-					i++;
+					arrayClientes[posicion]=p;
+					posicion++;
 
 				}
 			}catch(EOFException e) {
-				System.out.println("Fin del fichero. Hemos recuperado "+i);
+				System.out.println("Fin del fichero. Hemos recuperado "+posicion);
 			}catch(IOException ex) {
 				System.out.println("Error");
 		
@@ -79,9 +79,9 @@ public class Ejercicio8Main {
 			arrayClientes[2]=new Clientes ("Maria","654321234");
 			posicion++;
 			arrayClientes[3]=new Clientes ("Pilar","609878009");
-			
+			posicion++;
 		}
-		//hecho hasta aqui
+	
 		
 		do {
 			System.out.println("MENU");
@@ -102,26 +102,8 @@ public class Ejercicio8Main {
 				String nombre=teclado.nextLine();
 				System.out.println("Introduzca telefono:");
 				String telefono=teclado.nextLine();
-				/*
-				try {
-					
-					ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("c:\\archivos\\DatosClientes.dat"));
-					Clientes c= new Clientes(nombre,telefono);
-					for (int j=0;i<arrayClientes.length;j++) {	
-								out.writeObject(c);
-					} 
-				
-					
-					
-					if (out != null){
-							out.close () ;	
-					}
 				
 				
-				}catch (IOException e) {
-					e.printStackTrace();
-				}
-				*/
 				arrayClientes[posicion]=new Clientes(nombre,telefono);
 				posicion++;
 		
@@ -133,11 +115,17 @@ public class Ejercicio8Main {
 				break;
 			case 3:
 				System.out.println("Dar de baja un cliente");
-				
+				System.out.println("¿Que cliente va a quitar? Introduzca posicion:");
+				posicion=teclado.nextInt();
+				if(posicion>0) {
+					posicion--;
+				}
 				break;
 			case 4:
 				System.out.println("Listar los clientes");
-			
+				for (i=0;i<posicion;i++) {
+					System.out.println(arrayClientes[i].toString());
+				}
 				
 				break;
 			case 5:
@@ -145,15 +133,13 @@ public class Ejercicio8Main {
 					try {
 					
 						ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("c:\\archivos\\DatosClientes.dat"));
-					
+						
 						for (int j=0;j<posicion;j++) {	
-							
-									out.writeObject(arrayClientes[j]);
-									System.out.println("posicion de escritura"+j);
-
+								out.writeObject(arrayClientes[j]);
+								System.out.println("posicion de escritura"+j);
 						} 
 					
-						System.out.println(arrayClientes[i].toString()+" ");
+						
 						
 						if (out != null){
 								out.close () ;	
@@ -167,7 +153,7 @@ public class Ejercicio8Main {
 				
 				
 				System.out.println("Hasta pronto!");
-				
+				System.out.println("buscando el error");
 				break;
 			
 			}

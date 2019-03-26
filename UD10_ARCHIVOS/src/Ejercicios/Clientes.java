@@ -7,7 +7,7 @@ public class Clientes implements java.io.Serializable{
 	Clientes clientes[];
 	String nombre;
 	String telefono;
-	int id;
+	int id=1;
 	private static int identificador;
 	
 	Clientes(String n,String tel){
@@ -17,15 +17,7 @@ public class Clientes implements java.io.Serializable{
 		identificador ++;
 	}
 	
-	public void añadirCliente(String n,String tel) {
-		if(numClientes<limite) {
-			Clientes c = new Clientes(n,tel);
-			clientes[numClientes]=c;
-			numClientes++;
-		}else {
-			System.out.println("no se puede añadir nuevo cliente");
-		}
-	}
+	
 	
 	public boolean bajaCliente() {
 		boolean baja=false;
