@@ -18,26 +18,12 @@ public class Ejercicio7_CorregidoEnClase {
 	public static void main(String[] args) {
 
         // TODO Apéndice de método generado automáticamente
-
         /*
-
-        * 7)      Disponemos de dos ficheros binarios que
-
-        *  guardan números enteros ordenados de forma
-
-         *  creciente (numeros1.dat y numeros2.dat)
-
-         *  puedes apoyarte en el programa anterior para
-
-         *  generarlos. Fusionar ambos ficheros en un tercero
-
-         *  (números.dat) de forma que todos los datos sigan
-
+        * 7) Disponemos de dos ficheros binarios que guardan números enteros ordenados de forma
+         *  creciente (numeros1.dat y numeros2.dat) puedes apoyarte en el programa anterior para
+         *  generarlos. Fusionar ambos ficheros en un tercero (números.dat) de forma que todos los datos sigan
          *  ordenados.
-
          */
-
-       
 
 /* 1) comprobar que existen los ficheros
 
@@ -77,25 +63,18 @@ public class Ejercicio7_CorregidoEnClase {
 
         *                  fin-si
 
-        * fin-mientras
+        *      fin-mientras
 
         *
 
-         * 2.8) mientras (numeros1.dat o numeros2.dat
+         * 2.8) mientras (numeros1.dat o numeros2.dat queden datos){
+         * 
+         * se comprueba con el metodo available}
 
-         *                         queden datos){se comprueba con
-
-         *                  el metodo available}
-
-        *           escribir en numeros.dat los restos
+        *  escribir en numeros.dat los restos
 
 */
 
-       
-
-       
-
-       
 
 		 //    2.1) Crear el archivos numeros.dat (Escritura)
 		
@@ -104,37 +83,29 @@ public class Ejercicio7_CorregidoEnClase {
 		 // * 2.3) Abrir el archivo numeros2.dat (Lectura)
 
 		int elemento1;
-
+		
 		int elemento2;
 
 		DataInputStream in1=null;
-
+		
 		DataInputStream in2=null;
-
+		
 		DataOutputStream out=null;
 
 		try {
 
-			in1= new DataInputStream
+			in1= new DataInputStream (new FileInputStream("C:\\archivos\\numeros1.dat"));
+			
+			in2= new DataInputStream (new FileInputStream("C:\\archivos\\numeros2.dat"));
+			
+			out=new DataOutputStream (new FileOutputStream ("c:\\archivos\\numeros.dat"));
 
-                      (new FileInputStream("C:\\archivos\\numeros1.dat"));
-
-			in2= new DataInputStream
-
-                      (new FileInputStream("C:\\archivos\\numeros2.dat"));
-
-			out=new DataOutputStream
-
-                      (new FileOutputStream ("c:\\archivos\\numeros.dat"));
-
-		//2.4) y 2.5) leemos un valordeA1 de numeros1.dat, para meter el primer valor del
-		
-		//archvio en la "cajita" de un entero, para poder comparar cual es el mayor
-		
+		//2.4) y 2.5) leemos un valordeA1 de numeros1.dat, para meter el primer valor del		
+		//archvio en la "cajita" de un entero, para poder comparar cual es el mayor		
 		//y asi, poder mantener el orden en la fusión de los 2 archivos
 
 			elemento1=in1.readInt();
-
+			
 			elemento2=in2.readInt();
 
 			try {
@@ -143,15 +114,15 @@ public class Ejercicio7_CorregidoEnClase {
 
             	   if (elemento1<=elemento2) { //escribimos en el archivo de salida el elemento
 
-                                                                        //menor, ya sea el que proviene de numeros1.dat o
+                                              //menor, ya sea el que proviene de numeros1.dat o
 
-                                                                        // el que proviene de numeros2.dat
+                                                // el que proviene de numeros2.dat
 
                              out.writeInt(elemento1);
 
                              elemento1=in1.readInt(); //una vez escrito en el archivo numeros.dat, leemos el siguiente elemento
 
-                                                                        //del archivo de entrada correspondiente
+                                                       //del archivo de entrada correspondiente
 
             	   }else {
 
@@ -165,19 +136,19 @@ public class Ejercicio7_CorregidoEnClase {
 
 			}catch (EOFException e) {//cuando llegamos al final de archivo, y salta una excepcion
 
-                                                          //no sabemos cual de los dos archivos se va a cerrar (porque
+                                     //no sabemos cual de los dos archivos se va a cerrar (porque
 
-                                            //ha llegado al final, y en consecuencia, no sabemos cual de los dos archivos
+                                     //ha llegado al final, y en consecuencia, no sabemos cual de los dos archivos
 
-                                            //aun tiene datos que se deben añadir al final del archivo numeros.dat
+                                     //aun tiene datos que se deben añadir al final del archivo numeros.dat
 
                                            
 
 				while (in1.available()>0) { //usamos este while para indicar que, mientras queden
 
-                                                                 //datos en in1, debe leerlos y escribirlos en el
+                                            //datos en in1, debe leerlos y escribirlos en el
 
-                                                                //archivo resultado.
+                                            //archivo resultado.
 
 						elemento1=in1.readInt();
 
@@ -195,7 +166,7 @@ public class Ejercicio7_CorregidoEnClase {
 
 				}
 
-        //una vez aqui, hemos cerrado el archivo más corto mediante la excepcion.
+				//una vez aqui, hemos cerrado el archivo más corto mediante la excepcion.
 
 			}
 

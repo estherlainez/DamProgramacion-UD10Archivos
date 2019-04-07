@@ -11,6 +11,10 @@ public class Ejercicio4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		/*
+		4)En el archivo números.txt disponemos de una serie de números (uno por cada liena).
+		Diseñar un programa que procese el fichero y nos muestre el menor y el mayor. 
+		 */
 		Scanner teclado=new Scanner(System.in);
 		int numero=0,contador=0,maximo=0,minimo=0;
 		String cifra="";

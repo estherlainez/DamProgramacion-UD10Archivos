@@ -19,6 +19,11 @@ public class Ejercicio6 {
 
 	public static void main(String[] args) {
 		Scanner teclado=new Scanner(System.in);
+		/*
+		6)Crear un programa que genere un número aleatorio de números enteros, 
+		también aleatorios y, ordenados de forma creciente los guarde en un archivo. 
+		El nombre del archivo debe ser introducido por teclado.         */
+		
 		
 		//Generar numero aleatorio
 		//Generar n numeros aleatorios. Usaremos un array para guardar

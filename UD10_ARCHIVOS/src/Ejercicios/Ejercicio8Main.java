@@ -74,11 +74,11 @@ public class Ejercicio8Main {
 		}else {
 			arrayClientes[0]=new Clientes ("Paqui","666555444");
 			posicion++;
-			arrayClientes[1]=new Clientes ("Pepa","666777987");
+			arrayClientes[1]=new Clientes ("Esther","666777987");
 			posicion++;
-			arrayClientes[2]=new Clientes ("Maria","654321234");
+			arrayClientes[2]=new Clientes ("Elena","654321234");
 			posicion++;
-			arrayClientes[3]=new Clientes ("Pilar","609878009");
+			arrayClientes[3]=new Clientes ("Rosa","609878009");
 			posicion++;
 		}
 	

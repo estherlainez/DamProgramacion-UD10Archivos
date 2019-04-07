@@ -11,6 +11,10 @@ public class Ejercicio3 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		/*
+		 3)Crear un programa que duplique el contenido de un fichero.
+		  Duplicaremos el fichero original.txt en uno que se llame copia.txt.
+		 */
 		Scanner teclado=new Scanner(System.in);
 		String ruta= "c:\\archivos\\original.txt";
 		File original =new File(ruta);

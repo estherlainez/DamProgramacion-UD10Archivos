@@ -66,20 +66,20 @@ public class Ejercicio6_ConCaracteres {
 			
 
 				
-					try {
-						DataOutputStream d=new 	DataOutputStream
-								(new FileOutputStream(ruta));
-							for(int i=0;i<num;i++) {
-								d.writeUTF(arrayPalabras[i]);
+				try {
+					DataOutputStream d=new 	DataOutputStream
+							(new FileOutputStream(ruta));
+						for(int i=0;i<num;i++) {
+							d.writeUTF(arrayPalabras[i]);
 
-							}
+						}
 
-						d.close();
+					d.close();
 						
-					}catch(IOException ex) {
-						ex.printStackTrace();
-						System.out.println("el archivo no se puede escribrir el archivo");
-					}
+				}catch(IOException ex) {
+					ex.printStackTrace();
+					System.out.println("el archivo no se puede escribrir el archivo");
+				}
 
 				
 				

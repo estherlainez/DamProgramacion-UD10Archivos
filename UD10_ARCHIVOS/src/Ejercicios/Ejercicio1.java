@@ -8,6 +8,10 @@ public class Ejercicio1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		/*
+		 1)Realizar un programa que solicite al usuario el nombre de un fichero de
+		  texto y muestre su contenido en pantalla. 
+		 */
 		Scanner teclado=new Scanner(System.in);
 		System.out.println("Introduzca el nombre del archivo: ");
 		String nombreFichero=teclado.nextLine();
